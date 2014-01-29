@@ -1,6 +1,8 @@
 hugo
 docs/public*
+examples/multilingual/public*
 hugo.exe
 *.swp
 *.swo
 .DS_Store
+.#*
