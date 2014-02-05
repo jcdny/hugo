@@ -420,9 +420,9 @@ func (s *Site) RenderIndexes() error {
 			n.Title = strings.Title(k)
 			url := helpers.Urlize(plural + "/" + k)
 			n.Url = url + ".html"
-			plink := n.Url
+			plink := url + "/"
 			n.Permalink = permalink(s, plink)
-			n.RSSLink = permalink(s, url+".xml")
+			n.RSSLink = permalink(s, url+"/index.xml")
 			n.Date = o[0].Page.Date
 			n.Data[singular] = o
 			n.Data["Pages"] = o.Pages()
@@ -479,7 +479,7 @@ func (s *Site) RenderLists() error {
 		n.Title = strings.Title(inflect.Pluralize(section))
 		n.Url = helpers.Urlize(section + "/" + "index.html")
 		n.Permalink = permalink(s, n.Url)
-		n.RSSLink = permalink(s, section+".xml")
+		n.RSSLink = permalink(s, section+"/"+"index.xml")
 		n.Date = data[0].Page.Date
 		n.Data["Pages"] = data.Pages()
 		layout := "indexes/" + section + ".html"
